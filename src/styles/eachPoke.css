@@ -1,0 +1,51 @@
+.eachPoke {
+  background-color: #f2f2f3;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 10px;
+  border-radius: 5px;
+  -webkit-box-shadow: 2px 2px #bebec1;
+          box-shadow: 2px 2px #bebec1;
+  margin: auto;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 70px;
+  margin-bottom: 40px;
+}
+
+.eachPoke__types {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.eachPoke__type {
+  text-align: center;
+  padding: 7px;
+  margin: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 2px 2px #bebec1;
+          box-shadow: 2px 2px #bebec1;
+}
+
+.eachPoke__description {
+  margin: 5px;
+}
+
+.eachPoke__abilities {
+  display: block;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+/*# sourceMappingURL=eachPoke.css.map */

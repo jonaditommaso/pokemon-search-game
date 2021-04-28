@@ -1,0 +1,43 @@
+.searchPokemon {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    align-items: center;
+    flex-direction: column;
+}
+
+.searchPokemon__button {
+    margin-bottom: 15px;
+}
+
+.inputSearch {
+    display: flex;
+}
+
+.input {
+    display: flex;
+    width: 330px; 
+    justify-content: center;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.pokemonFile {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.pokemonFile__info {
+    text-align: center;
+}
+
+.pokemonFile__title {
+    display: flex;
+    justify-content: center;
+}
+
+.noMatch {
+    display: flex;
+    justify-content: center;
+}

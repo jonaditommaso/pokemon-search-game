@@ -1,0 +1,25 @@
+.showAllPokemons {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    background-color: rgba(234, 237, 237, 0.5);
+    margin: auto 30px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.showAllPokemons__buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.showAllPokemons__buttons > button {
+    margin: 10px;
+}
+
+.spinner {
+    display: flex;
+    justify-content: center;
+}
