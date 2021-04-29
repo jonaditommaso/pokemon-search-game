@@ -5,7 +5,7 @@ import { signIn } from '../../actions/index';
 import history from '../../history';
 import { Button, FormControl, InputGroup, Alert, Form } from 'react-bootstrap';
 
-const HARDCODED_PASSWORD = "testeo123";
+const HARDCODED_PASSWORD = "testing123";
 
 const Login = ({signIn}) => {
 
@@ -15,10 +15,10 @@ const Login = ({signIn}) => {
     const [invalidInputWarning, setInvalidInputWarning] = useState(false);
 
     const [showWarningTextForUser, setShowWarningTextForUser] = useState('none');
-    const [showWarningTextForPassword, setShowWarningTextForPassword] = useState('none');
+    const [showWarningTextForPassword, setShowWarningTextForPassword] = useState('flex');
 
     const [warningTextForUser, setWarningTextForUser] = useState('');
-    const [warningTextForPassword, setWarningTextForPassword] = useState('');
+    const [warningTextForPassword, setWarningTextForPassword] = useState('Password: testing123');
     
 
     const [showAlert, setShowAlert] = useState('none');
