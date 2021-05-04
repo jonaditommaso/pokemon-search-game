@@ -6,7 +6,7 @@ import pokeapi from '../../utils/pokeapi';
 import { Button, Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 import { colorsByType } from '../../utils/colorsByType';
 import Alert from '../log/Alert';
-// import { pauseMusic, playMusic } from '../../actions/index';
+import { pauseMusic, playMusic } from '../../actions/index';
 
 
 const SearchPokemon = ({thereIsUser, pauseMusic, playMusic, music}) => {
@@ -47,10 +47,21 @@ const SearchPokemon = ({thereIsUser, pauseMusic, playMusic, music}) => {
     const POKEMON = pokemonData?.name?.charAt(0).toUpperCase() + pokemonData?.name?.slice(1);
     const DESCRIPTION = `${POKEMON} is a ${pokemonType} type pokemon and his favorite move is ${pokemonMove}`;
 
-    const listenDescription = (text)=> {
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = 'en-US';
-        speechSynthesis.speak(utterance);
+    const handleClick = (text) => {
+        const audio = document.getElementById('music');
+
+        const listenDescription = () => {
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-US';
+            audio.pause();
+            pauseMusic();
+            utterance.onend = () => {
+                audio.play();
+                playMusic();
+            }
+            speechSynthesis.speak(utterance);    
+        }
+        listenDescription();  
     }
     
 
@@ -69,7 +80,7 @@ const SearchPokemon = ({thereIsUser, pauseMusic, playMusic, music}) => {
                         </Card.Body>
 
                         <Button 
-                         onClick={() => listenDescription(DESCRIPTION)}
+                         onClick={() => handleClick(DESCRIPTION)}
                         >
                             Listen
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-volume-up-fill" viewBox="0 0 16 16" style={{margin: '5px'}}>
@@ -129,9 +140,9 @@ const SearchPokemon = ({thereIsUser, pauseMusic, playMusic, music}) => {
 
 const mapStateToProps = (state) => {
     return { 
-        thereIsUser: state.login.user
-        // music: state.music.volume
+        thereIsUser: state.login.user,
+        music: state.music.volume
     }
 }
 
-export default connect(mapStateToProps, null)(SearchPokemon);
+export default connect(mapStateToProps, {playMusic, pauseMusic})(SearchPokemon);

@@ -16,6 +16,7 @@ const ShowAllPokemons = ({ thereIsUser }) => {
     const [nextUrl, setNextUrl] = useState('');
     const [prevUrl, setPrevUrl] = useState('');
     const [optionSelected, setOptionSelected] = useState('');
+    const [showAllPokemons, setShowAllPokemons] = useState(false)
 
     useEffect(() => {
         const getAllPokemons = async () => {
@@ -26,7 +27,7 @@ const ShowAllPokemons = ({ thereIsUser }) => {
             setLoading(false);
         }
         getAllPokemons()
-    }, [optionSelected]);
+    }, [showAllPokemons]);
 
     useEffect(() => {
         const getTypePokemon = async () => {
@@ -35,6 +36,8 @@ const ShowAllPokemons = ({ thereIsUser }) => {
             await loadPokemons(data.pokemon); 
             setLoading(false);
         }
+        
+        setShowAllPokemons(false);
         getTypePokemon();        
     }, [optionSelected]);
 
@@ -74,10 +77,15 @@ const ShowAllPokemons = ({ thereIsUser }) => {
         setLoading(false);
     }
 
+    const handleClickGoBack = () => {
+        setOptionSelected(false);
+        setShowAllPokemons(true);
+    }
+
     const showButtons = () => {
         if(optionSelected) {
             return (
-                <Button variant="primary" onClick={() => setOptionSelected(false)}>Go Back</Button>
+                <Button variant="primary" onClick={() => handleClickGoBack()}>Go Back</Button>
             )
         }
         else {
