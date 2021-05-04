@@ -18,7 +18,6 @@ const ShowAllPokemons = ({ thereIsUser }) => {
     const [optionSelected, setOptionSelected] = useState('');
 
     useEffect(() => {
-        
         const getAllPokemons = async () => {
             const {data} = await pokeapi.get(`/pokemon/`);
             await loadPokemons(data.results);    
@@ -84,7 +83,7 @@ const ShowAllPokemons = ({ thereIsUser }) => {
         else {
             return (
                 <>
-                    <Button variant="primary" onClick={()=>history.push('/')}>Return to play</Button>
+                    <Button variant="primary" onClick={()=>history.push('/')}>Back</Button>
                     <Button variant="info" onClick={prevPokemonList}>Prev</Button>
                     <Button variant="info" onClick={nextPokemonList}>Next</Button>
                 </>

@@ -6,9 +6,10 @@ import pokeapi from '../../utils/pokeapi';
 import { Button, Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 import { colorsByType } from '../../utils/colorsByType';
 import Alert from '../log/Alert';
+// import { pauseMusic, playMusic } from '../../actions/index';
 
 
-const SearchPokemon = ({thereIsUser}) => {
+const SearchPokemon = ({thereIsUser, pauseMusic, playMusic, music}) => {
 
     const [pokemonSearched, setPokemonSearched] = useState('');
     const [pokemonData, setPokemonData] = useState('');
@@ -45,13 +46,13 @@ const SearchPokemon = ({thereIsUser}) => {
 
     const POKEMON = pokemonData?.name?.charAt(0).toUpperCase() + pokemonData?.name?.slice(1);
     const DESCRIPTION = `${POKEMON} is a ${pokemonType} type pokemon and his favorite move is ${pokemonMove}`;
-    
 
     const listenDescription = (text)=> {
         const utterance = new SpeechSynthesisUtterance(text);
         utterance.lang = 'en-US';
         speechSynthesis.speak(utterance);
     }
+    
 
     const renderPokemon = () => {
         if (pokemonData) {
@@ -67,7 +68,9 @@ const SearchPokemon = ({thereIsUser}) => {
                             </Card.Text>
                         </Card.Body>
 
-                        <Button onClick={() => listenDescription(DESCRIPTION)}>
+                        <Button 
+                         onClick={() => listenDescription(DESCRIPTION)}
+                        >
                             Listen
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-volume-up-fill" viewBox="0 0 16 16" style={{margin: '5px'}}>
                                 <path d="M11.536 14.01A8.473 8.473 0 0 0 14.026 8a8.473 8.473 0 0 0-2.49-6.01l-.708.707A7.476 7.476 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303l.708.707z"/>
@@ -125,7 +128,10 @@ const SearchPokemon = ({thereIsUser}) => {
 }
 
 const mapStateToProps = (state) => {
-    return { thereIsUser: state.login.user }
+    return { 
+        thereIsUser: state.login.user
+        // music: state.music.volume
+    }
 }
 
 export default connect(mapStateToProps, null)(SearchPokemon);

@@ -4,7 +4,8 @@
     flex-direction: column;
     text-align: center;
     background-color: rgba(234, 237, 237, 0.5);
-    margin: auto 30px;
+    margin: auto 5px ;
+    /* margin-left: 2px; */
     margin-bottom: 20px;
     margin-top: 20px;
     border-radius: 5px;
@@ -13,10 +14,14 @@
 .showAllPokemons__buttons {
     display: flex;
     justify-content: center;
+    align-items: center;
+    margin: auto;
+    
 }
 
 .showAllPokemons__buttons > button {
-    margin: 10px;
+    margin: 5px;
+    height: fit-content;
 }
 
 .spinner {

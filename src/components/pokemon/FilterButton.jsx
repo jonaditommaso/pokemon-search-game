@@ -20,7 +20,7 @@ const FilterButton = ({setOptionSelected}) => {
                 <Dropdown.Item onClick={() => setOptionSelected('ground')}>Ground</Dropdown.Item>
                 <Dropdown.Item onClick={() => setOptionSelected('bug')}>Bug</Dropdown.Item>
                 <Dropdown.Item onClick={() => setOptionSelected('ghost')}>Ghost</Dropdown.Item>
-                <Dropdown.Item onClick={() => setOptionSelected('psychic')}>Pyschic</Dropdown.Item>
+                <Dropdown.Item onClick={() => setOptionSelected('psychic')}>Psychic</Dropdown.Item>
                 <Dropdown.Item onClick={() => setOptionSelected('poison')}>Poison</Dropdown.Item>
                 <Dropdown.Item onClick={() => setOptionSelected('fairy')}>Fairy</Dropdown.Item>
                 <Dropdown.Item onClick={() => setOptionSelected('rock')}>Rock</Dropdown.Item>

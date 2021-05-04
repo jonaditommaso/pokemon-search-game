@@ -1,4 +1,4 @@
-import { SIGN_IN, SIGN_OUT } from './types';
+import { SIGN_IN, SIGN_OUT, PLAY_MUSIC, PAUSE_MUSIC } from './types';
 
 
 export const signIn = (user)=> {
@@ -13,3 +13,15 @@ export const signOut = ()=> {
         type: SIGN_OUT
     }
 };
+
+export const playMusic = () => {
+    return {
+        type: PLAY_MUSIC
+    }
+}
+
+export const pauseMusic = () => {
+    return {
+        type: PAUSE_MUSIC
+    }
+}

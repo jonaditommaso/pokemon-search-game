@@ -2,3 +2,7 @@
     display: flex;
     justify-content: flex-end;
 }
+
+.stateLogin > Button {
+    padding: 4px;
+}
