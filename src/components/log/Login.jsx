@@ -30,6 +30,28 @@ const Login = ({signIn}) => {
     }
 
     const validateLogin = () => {
+
+        if(password !== HARDCODED_PASSWORD && user.length >= 4) {
+            setShowWarningTextForUser('none');
+            setShowWarningTextForPassword('flex');
+            setWarningTextForPassword('Password is incorrect. Try again.');
+        } else if (password.length === 0 && user.length >= 4) {
+            setWarningTextForPassword('Please, complete this area')
+        }
+
+        if(user.length >= 4) {
+            setShowWarningTextForUser('none');
+        } 
+
+        if (user.length >= 4 && password.length === 0) {
+            setShowWarningTextForUser('none');
+            setWarningTextForPassword('Please, complete this area')
+        }
+
+        if (user.length < 4 && password) {
+            setShowWarningTextForPassword('none');
+        }
+
         if(password === HARDCODED_PASSWORD && user.length >= 4) {
             setShowAlert('flex');
             setInvalidInputWarning(false);
@@ -40,16 +62,6 @@ const Login = ({signIn}) => {
             setTimeout(()=> {
                 history.push('/');
             }, 800);
-        }
-
-        if(password !== HARDCODED_PASSWORD && user.length >= 4) {
-            setShowWarningTextForUser('none');
-            setShowWarningTextForPassword('flex');
-            setWarningTextForPassword('Password is incorrect. Try again.');
-        }
-
-        if(user.length >= 4) {
-            setShowWarningTextForUser('none');
         } 
 
         else {
@@ -81,6 +93,10 @@ const Login = ({signIn}) => {
 
             if(user.length >= 4) {
                 setShowWarningTextForUser('none');
+            } 
+            if(user.length >= 4 && password.length === 0) {
+                setShowWarningTextForUser('none');
+                setWarningTextForPassword('Please, complete this area');
             } 
         }
     }

@@ -35,7 +35,6 @@ const Navbar = ({thereIsUser, music, playMusic, pauseMusic}) => {
         else {
             audio.play();
             playMusic();
-            console.log('el audio', audio.play())
         }
         
     }

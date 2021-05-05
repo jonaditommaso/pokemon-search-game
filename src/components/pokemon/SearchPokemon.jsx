@@ -53,12 +53,15 @@ const SearchPokemon = ({thereIsUser, pauseMusic, playMusic, music}) => {
         const listenDescription = () => {
             const utterance = new SpeechSynthesisUtterance(text);
             utterance.lang = 'en-US';
+            if(music) {
+                utterance.onend = () => {
+                    audio.play();
+                    playMusic();
+                }
+            }
             audio.pause();
             pauseMusic();
-            utterance.onend = () => {
-                audio.play();
-                playMusic();
-            }
+            
             speechSynthesis.speak(utterance);    
         }
         listenDescription();  
