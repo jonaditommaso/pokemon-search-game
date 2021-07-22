@@ -23,9 +23,16 @@
     .sideDropdown__userName {
         padding: 2.5px;
         margin-right: 2px;
+        margin-top: 5px;
     }
 
     .sideDropdown {
         height: 30px;
+        align-items: center;
+        margin: auto;
+    }
+
+    .sideDropdown > :last-child {
+        margin-top: 5px;
     }
 }
