@@ -6,3 +6,9 @@
 .stateLogin > Button {
     padding: 4px;
 }
+
+@media (max-width: 374px) {
+    .stateLogin > Button {
+        padding: 2px;
+    }
+}

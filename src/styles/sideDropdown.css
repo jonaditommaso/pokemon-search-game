@@ -14,3 +14,18 @@
 .sideDropdown__userName > img {
     margin: 2px;
 }
+
+.sideDropdown__item {
+    display: inline-flex;
+}
+
+@media (max-width: 374px) {
+    .sideDropdown__userName {
+        padding: 2.5px;
+        margin-right: 2px;
+    }
+
+    .sideDropdown {
+        height: 30px;
+    }
+}

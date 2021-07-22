@@ -38,7 +38,11 @@ const ShowAllPokemons = ({ thereIsUser }) => {
         }
         
         setShowAllPokemons(false);
-        getTypePokemon();        
+
+        if(optionSelected) {
+            getTypePokemon();   
+        }
+             
     }, [optionSelected]);
 
 
