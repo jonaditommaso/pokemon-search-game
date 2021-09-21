@@ -3,10 +3,10 @@ import '../../styles/navbar.css';
 import { connect } from 'react-redux';
 import StateLogin from '../log/StateLogin';
 import SideDropdown from './SideDropdown';
-import { playMusic, pauseMusic } from '../../actions/index';
+import { playMusic, pauseMusic, musicBattle, musicBattlePause } from '../../actions/index';
 
 
-const Navbar = ({thereIsUser, music, playMusic, pauseMusic}) => {
+const Navbar = ({thereIsUser, music, playMusic, pauseMusic, musicBattle, musicBattlePause, battle}) => {
 
     const [showSideDropDown, setShowSideDropDown] = useState(false);
 
@@ -17,7 +17,15 @@ const Navbar = ({thereIsUser, music, playMusic, pauseMusic}) => {
             }, 1000);
         }
 
-    }, [thereIsUser, showSideDropDown])
+        const audio = document.getElementById('music'); //para pausar musica de inicio cuando haya pelea.
+        if(music.other === true) {
+            audio.pause();
+        }
+        if((music.other === false) && music.volume) {
+            audio.play();
+        }
+
+    }, [thereIsUser, showSideDropDown, music, battle]);
 
     const showMenu = () => {
         return (
@@ -27,20 +35,29 @@ const Navbar = ({thereIsUser, music, playMusic, pauseMusic}) => {
 
     const handleMusic = () => {
         const audio = document.getElementById('music');
-        
-        if(!audio.paused && !audio.ended) {
-            audio.pause();
-            pauseMusic();
+        if(!music.volume && music.other) { 
+            playMusic();
+
         }
-        else {
+        if(audio.paused && !music.other) { //si no hay volumen y no hay pelea. Normalmente al comienzo
             audio.play();
             playMusic();
         }
-        
+        if(music.volume && music.other) {
+            pauseMusic();
+            // musicBattlePause(); // este es el problema, pasa other a false y solo debe pasar cuando salga de la pelea
+        }
+        if(music.volume && !music.other) { // pausar el audio normal de inicio.
+            pauseMusic();
+            audio.pause();
+        }
+        if(!music.volume){
+            audio.pause();
+        }
     }
 
     const showVolumeIcon = () => {
-        if(music) {
+        if(music.volume) {
             return (
                 <svg className="bi bi-volume-up-fill" xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor"  viewBox="0 0 16 16">
                     <path d="M11.536 14.01A8.473 8.473 0 0 0 14.026 8a8.473 8.473 0 0 0-2.49-6.01l-.708.707A7.476 7.476 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303l.708.707z"/>
@@ -58,10 +75,8 @@ const Navbar = ({thereIsUser, music, playMusic, pauseMusic}) => {
             )
             
         } 
-           
     }
     
-
     return ( 
         <>
             <div className="navbar">
@@ -92,8 +107,9 @@ const Navbar = ({thereIsUser, music, playMusic, pauseMusic}) => {
 const mapStateToProps = (state) => {
     return { 
         thereIsUser: state.login.user,
-        music: state.music.volume
+        music: state.music,
+        battle: state.battle
     } 
 }
 
-export default connect(mapStateToProps, {playMusic, pauseMusic})(Navbar);
+export default connect(mapStateToProps, {playMusic, pauseMusic, musicBattle, musicBattlePause})(Navbar);

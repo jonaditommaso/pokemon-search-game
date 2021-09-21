@@ -1,0 +1,42 @@
+.home {
+    margin: auto;
+    margin-top: 5%;
+    width: 50rem;
+}
+
+.home__containerImg {
+    display: flex;
+    justify-content: center;
+    height: 300px;
+}
+
+.home__text {
+    margin-bottom: 5%;
+    text-align: center;
+    color: white;
+}
+
+
+
+@media (max-width: 770px) {
+    .home {
+        width: 45rem;
+    }
+
+    .home__text {
+        height: 120px;
+    }
+}
+
+@media (max-width: 417px) {
+
+    .home {
+        width: 20rem;
+    }
+
+    .home__text {
+        padding: 6px;
+        margin-bottom: 15%;
+        height: 180px;
+    }
+}

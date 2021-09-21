@@ -113,7 +113,10 @@ const ShowAllPokemons = ({ thereIsUser }) => {
                 : (
                     <div>
                         { loading 
-                            ? <div className="spinner"><Spinner animation="border" variant="danger" /></div>
+                            // ? <div className="spinner"><Spinner animation="border" variant="danger" /></div>
+                            ? <div className="loading" style={{display: 'flex', justifyContent: 'center'}}>
+                                <img src="/assets/img/pokeball.png" alt="loading"/>
+                                </div>
                             : (
                                 <div className="showAllPokemons">
                                     <div className="showAllPokemons__buttons">

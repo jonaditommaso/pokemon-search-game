@@ -1,6 +1,6 @@
-import { PLAY_MUSIC, PAUSE_MUSIC} from '../actions/types';
+import { PLAY_MUSIC, PAUSE_MUSIC, PLAY_MUSIC_BATTLE, PAUSE_MUSIC_BATTLE} from '../actions/types';
 
-const INITIAL_STATE = {volume: true};
+const INITIAL_STATE = {volume: false, other: false};
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
@@ -9,6 +9,12 @@ export default (state = INITIAL_STATE, action) => {
         
         case PAUSE_MUSIC:
             return {...state, volume: false};
+
+        case PLAY_MUSIC_BATTLE:
+            return {...state, other: true };
+
+        case PAUSE_MUSIC_BATTLE:
+            return {...state, other: false };
         
         default:
             return state;

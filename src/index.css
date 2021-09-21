@@ -5,14 +5,22 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url('../src/assets/img/pueblopaleta.jpg');
+  /* background-image: url('../src/assets/img/pueblopaleta.jpg'); */
+  background-image: url('../src/assets/img/pokeballs-transparent.png');
   /* width: 100%; */
   background-size: cover;
-  background-repeat: no-repeat;
   /* height: 100%;  */
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@media (max-width: 770px) {
+  body {
+    background-size: auto;
+    background-repeat: repeat;
+  }
+
 }

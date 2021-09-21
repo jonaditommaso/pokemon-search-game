@@ -13,4 +13,12 @@ export default class PokemonService {
     async getUrlForEachPokemon(url) {
         return await axios.get(url);
     }
+
+    async getNextCardPokemon(nextPoke) {
+        return await axios.get(nextPoke);
+    }
+
+    async getPrevCardPokemon(prevPoke) {
+        return await axios.get(prevPoke);
+    }
 };

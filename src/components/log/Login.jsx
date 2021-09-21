@@ -106,14 +106,13 @@ const Login = ({signIn}) => {
         validateLogin();
     }
 
-
     return ( 
         <>
             <div className="login">
                 <Form>
                     <img src="/assets/img/pokeball.png" alt="login" className="image" />
                     <Form.Label className="login__title">
-                        <h4>Sign in</h4>
+                        <h3 style={{fontStyle: 'italic'}}>Sign in</h3>
                     </Form.Label>
 
                     <InputGroup className="mb-2" hasValidation>
@@ -141,13 +140,15 @@ const Login = ({signIn}) => {
                             onChange={e => setPassword(e.target.value)}
                             isInvalid={invalidInputWarning}    
                         />
+                        {/* <div style={{display: 'flex'}}> */}
+                            <Form.Control.Feedback 
+                                type="invalid" 
+                                style={{display: showWarningTextForPassword, justifyContent: 'center' }}
+                            >
+                                {warningTextForPassword}
+                            </Form.Control.Feedback>
+                        {/* </div> */}
                         
-                        <Form.Control.Feedback 
-                            type="invalid" 
-                            style={{display: showWarningTextForPassword, justifyContent: 'center' }}
-                        >
-                            {warningTextForPassword}
-                        </Form.Control.Feedback>
                     </Form.Group>
 
                     <Button 

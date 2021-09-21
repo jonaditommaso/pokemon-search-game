@@ -1,12 +1,15 @@
-$shadowColor: #bebec1;
-$shadow: 2px 2px $shadowColor;
+// $shadowColor: #bebec1;
+// $shadow: 2px 2px $shadowColor;
+
+$shadowColor: #d0d0d0;
+$shadow: 1.5px 1px 2px 2px $shadowColor;
 
 .eachPoke {
     background-color: #f2f2f3;
     // width: fit-content;
     display: inline-flex;
     justify-content: center;
-    padding: 10px;
+    padding: 30px;
     border-radius: 5px;
     box-shadow: $shadow;
     // margin: auto;
@@ -38,4 +41,42 @@ $shadow: 2px 2px $shadowColor;
 .eachPoke__abilities {
     display: block;
     justify-content: center;
+    margin: 0;
+}
+
+.eachPoke__attackDefense {
+    background-color: #e7e5e5a6;
+    padding: 3px;
+    border-radius: 7px;
+}
+
+.eachPoke__img {
+    width: 100px;
+    height: 100px;
+}
+
+.eachPoke__File {
+    display: flex;
+}
+    
+
+@media (max-width: 420px) {
+    .eachPoke{
+        padding: 15px;
+        margin-bottom: 15px;
+        margin-top: 30px
+    }
+    .eachPoke__img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .eachPoke__File {
+        flex-direction: column;
+    }
+    
+    .eachPoke__attackDefense {
+        margin: auto;
+        margin-bottom: 25px;
+    }
 }
